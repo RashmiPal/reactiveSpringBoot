@@ -3,8 +3,7 @@ kind: Service
 metadata:
   labels:
     {{- include "my-first-chart.labels" . | nindent 4 }}
-  name: {{ .Values.service.name | quote }}
-  namespace: ms
+  name: {{ .Values.service.name | quote }}  
 spec:
   selector:
     app: {{- include "my-first-chart.selectorLabels" . | nindent 4 }}
