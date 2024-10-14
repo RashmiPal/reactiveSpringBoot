@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "user-info"
+  namespace: ms
+  labels:
+    app: "user-info"
+spec:
+  selector:
+    matchLabels:
+      app: "user-info"
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: "user-info"
+    spec:
+      containers:
+      - name: "user-info"
+        image: rashmipal320/reactivespringboot:0.0.4-RELEASE
+        ports:
+        - containerPort: 8001
+          name: "user-info"
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "user-info-service"
+  namespace: ms
+spec:
+  selector:
+    app: "user-info"
+  type: ClusterIP
+  ports:
+  - name: "user-info-service"
+    port: 8001
+    targetPort: 8001
+

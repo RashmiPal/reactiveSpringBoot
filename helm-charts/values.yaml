@@ -1,0 +1,11 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8001
+  name: user-info-service
+  targetPort: 8001

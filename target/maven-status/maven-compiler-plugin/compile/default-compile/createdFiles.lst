@@ -1,0 +1,9 @@
+com\jts\controller\PostController.class
+com\jts\model\Userdetails.class
+com\jts\service\UserService.class
+com\jts\service\PostService.class
+com\jts\model\Post.class
+com\jts\repository\UserRepository.class
+com\jts\repository\PostRepository.class
+com\jts\ReactiveSpringBootApplication.class
+com\jts\controller\UserController.class
