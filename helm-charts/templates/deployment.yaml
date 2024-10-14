@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name}}
+  namespace: ms
+  labels:
+    {{- include "my-first-chart.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "my-first-chart.selectorLabels" . | nindent 6}}
+  replicas: {{ .Values.replicaCount}}  
+  template:
+    metadata:
+      labels:
+        {{- include "my-first-chart.selectorLabels" . | nindent 8}}
+    spec:
+      containers:
+      - name: {{ .Values.container.name | quote }}
+        image: {{ .Values.image.repository | quote }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.service.targetPort}}
+          
