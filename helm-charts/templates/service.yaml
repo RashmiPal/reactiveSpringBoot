@@ -9,7 +9,6 @@ spec:
     {{- include "my-first-chart.selectorLabels" . | nindent 4 }}
   type: {{ .Values.service.type}}
   ports:
-  - name: "http"
-    port: {{ .Values.service.port}}
-    targetPort: {{ .Values.service.targetPort}}
-    nodePort: {{ .Values.service.nodePort}}
+  - name: "info"
+    port: {{ .Values.service.port}}    
+    
