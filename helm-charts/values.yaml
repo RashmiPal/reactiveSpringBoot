@@ -5,10 +5,11 @@ image:
   pullPolicy: IfNotPresent
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 8001
   name: user-info-service
   targetPort: 8001
+  nodePort: 32470
 
 container:
   name: user-info
