@@ -6,7 +6,7 @@ metadata:
   name: {{ .Values.service.name | quote }}  
 spec:
   selector:
-    app: {{- include "my-first-chart.selectorLabels" . | nindent 4 }}
+    {{- include "my-first-chart.selectorLabels" . | nindent 4 }}
   type: {{ .Values.service.type}}
   ports:
   - name: "http"
